@@ -5,21 +5,21 @@ The project was designed with simplicity and modularity in mind, while also meet
 
 # Code Structure
 
-1. `main.go`
-This is main function where the Gin router is initiallized, and the database connection is set up.
-I created a post endpoint `/contacts` is created to handle incoming contact data.
+1. `main.go`  
+   This is the main function where the Gin router is initialized, and the database connection is set up.  
+   I created a `POST` endpoint `/contacts` to handle incoming contact data.
 
-2. `controllers/contact.go`
+2. `controllers/contact.go`  
 It contains the logic to handle HTTP request related to "Contacts".
 CreateContact function handles the `POST` request to persist contact data.
 I added the validataion function and the input is validated before saving any contact data.
 THe includes checking for a valid email format and ensuring that phone numbers are in the #.164 format.
 If any validation falis, ther user is informed with an appropriate error message but on success, the validated contact is saved to the database and the response iclude the saved data.
 
-3. `models/contact.go`
+3. `models/contact.go`  
 I created the model here and it contains fields like `FullName`, `Email` and `PhoneNumber`.
 
-4. `database/db.go`
+4. `database/db.go`  
 This file is responsible for initializing and connectig to the database.
 I used SQLite and the GORM's auto-migration feature is used to ensure the database schema reflects the structure of the Contact model.
 
